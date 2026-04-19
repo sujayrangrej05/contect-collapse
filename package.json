@@ -1,0 +1,10 @@
+{
+  "name": "context-collapse",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node backend/server.js",
+    "test": "node backend/test_suite.js",
+    "build": "cd frontend && npm install && npm run build"
+  }
+}

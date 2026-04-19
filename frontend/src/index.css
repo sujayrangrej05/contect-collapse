@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .focus-trap {
+    /* Focus Trap CSS ensuring nothing else is visible or clickable */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-color: theme('colors.focus.dark');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+}
+
+/* Base accessible styles */
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button:focus-visible {
+  outline: 3px solid theme('colors.focus.accent');
+  outline-offset: 2px;
+}
+
+a:focus-visible {
+  outline: 3px solid theme('colors.focus.accent');
+  outline-offset: 2px;
+}
