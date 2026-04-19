@@ -7,8 +7,8 @@ dotenv.config();
 // Ensure the API key is available
 const apiKey = process.env.GEMINI_API_KEY;
 
-export async function synthesizeWorkspaceData() {
-  const workspaceData = await fetchWorkspaceData();
+export async function synthesizeWorkspaceData(tokens) {
+  const workspaceData = await fetchWorkspaceData(tokens);
   
   // If no API key is provided, return a mock response for UI testing
   if (!apiKey || apiKey === 'your_gemini_api_key_here') {
