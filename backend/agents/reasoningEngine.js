@@ -59,7 +59,13 @@ export async function synthesizeWorkspaceData() {
       }
     });
 
-    return JSON.parse(response.text());
+    // Safely get the text whether it's a getter or a method
+    let rawText = typeof response.text === 'function' ? response.text() : response.text;
+    
+    // Sometimes the model returns markdown blocks even with responseMimeType set
+    rawText = rawText.replace(/```json/g, '').replace(/```/g, '').trim();
+
+    return JSON.parse(rawText);
   } catch (error) {
     console.error('Error in reasoning engine:', error);
     throw error;
